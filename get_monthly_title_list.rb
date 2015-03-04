@@ -1,7 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
 
+#エロゲ
 #'http://www.getchu.com/all/month_title.html?genre=pc_soft&gage=&year=2015&month=02'
+#アニメ
+#http://www.getchu.com/all/month_title.html?genre=anime_dvd&gage=normal
+
+#TODO 引数はファイルかURLをとれるように -f で引数のファイルが存在してたらファイルとして処理
 # file.html
 target = ARGV[0]
 
