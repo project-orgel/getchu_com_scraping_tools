@@ -9,6 +9,7 @@ http://www.getchu.com/
 エロゲの月別発売ページからタイトルを抽出します
 
 |項目|説明|
+|:----|:---|
 |引数1|HTMLファイル名、もしくはURL|
 
     bundle exec ruby get_monthly_title_list.rb 'http://www.getchu.com/all/month_title.html?genre=pc_soft&gage=all&year=2014&month=7'
