@@ -1,20 +1,26 @@
 require 'nokogiri'
 require 'open-uri'
+require 'uri'
 
 #エロゲ
 #'http://www.getchu.com/all/month_title.html?genre=pc_soft&gage=&year=2015&month=02'
 #アニメ
 #http://www.getchu.com/all/month_title.html?genre=anime_dvd&gage=normal
 
-#TODO 引数はファイルかURLをとれるように -f で引数のファイルが存在してたらファイルとして処理
-# file.html
 target = ARGV[0]
 
 doc = nil
-f = File.open(target)
-  doc = Nokogiri::HTML(f, nil, 'EUC-JP')
-f.close
-charset = nil
+
+puts target
+
+if /^http.*/ =~ target
+  html  = Net::HTTP.get_response(URI.parse(target)).body
+  doc = Nokogiri::HTML.parse(html, nil, 'EUC-JP')
+else
+  f = File.open(target)
+   doc = Nokogiri::HTML(f, nil, 'EUC-JP')
+  f.close
+end
 
 index_counter = 0
 title_list = []
@@ -47,8 +53,6 @@ end
 def out_twitter_streaming_keys(title_list)
   puts title_list.join(',')
 end
-
-
 
 
 #タイトル一覧を出力(加工なし)

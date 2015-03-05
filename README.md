@@ -2,6 +2,18 @@
 
 http://www.getchu.com/
 
+## Command Util
+
+### get_monthly_title_list.rb
+
+エロゲの月別発売ページからタイトルを抽出します
+
+|項目|説明|
+|引数1|HTMLファイル名、もしくはURL|
+
+    bundle exec ruby get_monthly_title_list.rb 'http://www.getchu.com/all/month_title.html?genre=pc_soft&gage=all&year=2014&month=7'
+    bundle exec ruby get_monthly_title_list.rb sample_page/2015_01.html
+    
 ## 開発Tips
 
 ### デバッグ用にページを保存しておくためのcurlコード
